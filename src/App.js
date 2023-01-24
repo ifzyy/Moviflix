@@ -26,7 +26,7 @@ function App() {
     axios.get("http://localhost:3001/logged_in", {withCredentials: true})
     .then(response =>{
       console.log(response.data)
-      if(response.data.logged_in  && loggedInStatus == false) {
+      if(response.data.logged_in  && loggedInStatus === false) {
         setLoggedInStatus(true)
         setuser(response.data.user)
       }
