@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom"
-import validator from "validator";
 import axios from 'axios';
 import '../styles/Signup.css'
 const Signup = (props) => {
@@ -9,35 +8,47 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const [show, setShow] = useState(false)
   const navigate = useNavigate()
   const handleSuccesfulAuth = () => {
     props.setLoggedInStatus(true);
     navigate('/')
   }
 
+  const showPass = ()=>{
+    if(show){
+      setShow(false)
+    }
+    else{
+      setShow(true)
+    }
+   
+  }
+
   const handleSignup = async (e) => {
     e.preventDefault();
-    if(name === ''){
-      toast.error("Name length is too short")
-    }
+    if((name !== '' && password !== '') && password.length > 6){
     axios.post("http://localhost:3001/registrations", {
       user: {
         name: name,
-        email: validator.isEmail(email) ? email : setMessage("Enter valid email*"),
+        email: email,
         password: password,
         password_confirmation: passwordConfirmation,
       }
     }, { withCredentials: true }
     ).then(response => {
       if (response.data.status === "created") {
-        toast.success("sign up succesful")
-        handleSuccesfulAuth()
+        toast.success("Sign up successful")
+        setTimeout(handleSuccesfulAuth(),2000)
+        
       }
       else {
-        toast.error(`${response.data.status}`)
+        toast.error(response.data.message)
       }
-    })
+    })}
+    else {
+      toast.error("Something went wrong")
+    }
   };
 
   return (
@@ -60,7 +71,7 @@ const Signup = (props) => {
                 </label>
               </div>
               <div id="float-label">
-                <input type="text"
+                <input type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)} />
                 <label className={email.length > 0 ? "Active" : ""} htmlFor="email">
@@ -68,20 +79,22 @@ const Signup = (props) => {
                 </label>
               </div>
               <div id="float-label">
-                <input type="text"
+                <input type={show ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)} />
                 <label className={password.length > 0 ? "Active" : ""} htmlFor="password">
                   Password
                 </label>
+                 <button onClick={showPass} className="show" type = "button" >{show ? "hide" : "show"}</button>
               </div>
               <div id="float-label">
-                <input type="text"
+                <input type={show ? "text" : "password"}
                   value={passwordConfirmation}
                   onChange={(e) => setPasswordConfirmation(e.target.value)} />
                 <label className={passwordConfirmation.length > 0 ? "Active" : ""} htmlFor="confirm password">
                   Confirm password
                 </label>
+                <button className="show" onClick={showPass} type="button">{show ? "hide" : "show"}</button>
               </div>
               <input
                 className="submit"

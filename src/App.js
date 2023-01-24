@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import { useEffect } from 'react';
+import toast,{ Toaster } from 'react-hot-toast';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
@@ -18,6 +19,7 @@ function App() {
     .then(response =>{
       if(response.data.loggedout){
         setLoggedInStatus(false)
+        toast.success("logout succesful")
       }
     })
   }
@@ -42,6 +44,7 @@ function App() {
    }, )
   return (
     <div className="App">
+      <Toaster position="top-center" />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home loggedInStatus={loggedInStatus} user={user} logout={handleLogout}/>} />

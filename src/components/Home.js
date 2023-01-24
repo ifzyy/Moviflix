@@ -15,7 +15,7 @@ const Home = (props) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-
+  
   if (!props.loggedInStatus) {
   return (
     <div className="Home">
@@ -61,7 +61,7 @@ const Home = (props) => {
             </header>
 
             <section className="headline">
-              <p className="text">Welcome {capitalizeFirstLetter(props.user.name)}</p>
+              <p className="texto">Welcome {capitalizeFirstLetter(props.user.name)}</p>
               <section className="headline" data-aos="zoom-in">
                 <h1 className="unlimited">Unlimited movies, <br /> TV shows, and more.</h1>
                 <p className="text">Watch anywhere. anytime.</p>

@@ -8,8 +8,18 @@ import axios from 'axios';
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [show, setShow] = useState(false)
   const navigate = useNavigate()
+
+  const showPass = () => {
+    if (show) {
+      setShow(false)
+    }
+    else {
+      setShow(true)
+    }
+
+  }
   const handleSuccessfulLogin = (data) => {
     props.setLoggedInStatus(true);
     props.setuser(data)
@@ -17,18 +27,17 @@ const Login = (props) => {
   }
 
   const handleLogin = async (e) => {
-    console.log(password.length)
     e.preventDefault();
     axios.post("http://localhost:3001/sessions", {
       user: {
-        email: validator.isEmail(email) ? email : setMessage("Enter valid email*"),
+        email: validator.isEmail(email) ? email : toast.error("Enter valid email"),
         password: password,
       }
     }, { withCredentials: true }
     ).then(response => {
       if (response.data.status === "created") {
-        handleSuccessfulLogin(response.data.user)
-        toast.success(`welcome back ${response.data.user}`)
+        toast.success(`welcome back ${response.data.user.name}`)
+           handleSuccessfulLogin(response.data.user)
       }
       else {
         console.log(response)
@@ -55,15 +64,15 @@ const Login = (props) => {
                 <label className={email.length > 0 ? "Active" : ""} htmlFor="email">
                   Email adress
                 </label>
-                <p className="error">{message}</p>
               </div>
               <div id="float-label">
-                <input type="password"
+                <input type={show ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)} />
                 <label className={password.length > 0 ? "Active" : ""} htmlFor="password">
                   Password
                 </label>
+                <button className="show" onClick={showPass} type="button">{show ? "hide" : "show"}</button>
               </div>
 
               <input
