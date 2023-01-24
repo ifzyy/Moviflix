@@ -52,10 +52,10 @@ const Home = (props) => {
         <div className="bg">
           <div className="bg2">
             <header className="header">
-              <div className="logo"><a className="logo " href="">Moviflix</a> </div>
+              <div className="logo"><a className="logo " href="/">Moviflix</a> </div>
               <div className="nav">
                 <div className="nav-links">
-                  <a onClick={props.logout} className="link">Logout</a>
+                  <button onClick={props.logout} className="link">Logout</button>
                 </div>
               </div>
             </header>
