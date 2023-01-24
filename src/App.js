@@ -15,7 +15,7 @@ function App() {
   const [user, setuser] = useState({})
 
   const handleLogout = () =>{
-    axios.delete("http://localhost:3001/logout", {withCredentials: true})
+    axios.delete("https://throbbing-water-6757.fly.dev/logout", {withCredentials: true})
     .then(response =>{
       if(response.data.loggedout){
         setLoggedInStatus(false)
@@ -25,7 +25,7 @@ function App() {
   }
 
   const checkLoggedIn =()=>{
-    axios.get("http://localhost:3001/logged_in", {withCredentials: true})
+    axios.get("https://throbbing-water-6757.fly.dev/logged_in", {withCredentials: true})
     .then(response =>{
       console.log(response.data)
       if(response.data.logged_in  && loggedInStatus === false) {
