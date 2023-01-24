@@ -39,7 +39,7 @@ function App() {
   
    useEffect(() => {
     checkLoggedIn()
-   }, [])
+   }, )
   return (
     <div className="App">
       <BrowserRouter>
