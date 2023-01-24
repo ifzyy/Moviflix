@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom"
+import validator from "validator";
 import axios from 'axios';
 import '../styles/Signup.css'
 const Signup = (props) => {
@@ -17,20 +18,24 @@ const Signup = (props) => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if(name === ''){
+      toast.error("Name length is too short")
+    }
     axios.post("http://localhost:3001/registrations", {
       user: {
         name: name,
-        email: email,
+        email: validator.isEmail(email) ? email : setMessage("Enter valid email*"),
         password: password,
         password_confirmation: passwordConfirmation,
       }
     }, { withCredentials: true }
     ).then(response => {
       if (response.data.status === "created") {
+        toast.success("sign up succesful")
         handleSuccesfulAuth()
       }
       else {
-        console.log(response)
+        toast.error(`${response.data.status}`)
       }
     })
   };
