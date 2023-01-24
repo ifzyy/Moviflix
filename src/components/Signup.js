@@ -28,7 +28,7 @@ const Signup = (props) => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if((name !== '' && password !== '') && password.length > 6){
-    axios.post("http://localhost:3001/registrations", {
+      axios.post("https://throbbing-water-6757.fly.dev/registrations", {
       user: {
         name: name,
         email: email,
