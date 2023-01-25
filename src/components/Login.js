@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
 import axios from 'axios';
@@ -80,7 +81,7 @@ const Login = (props) => {
                 type="submit"
                 value="Login"
                 onClick={handleLogin} />
-              <div className="remember">New to Moviflix? <a href="/signup">Sign up</a></div>
+              <div className="remember">New to Moviflix? <Link to="/signup">Sign up</Link></div>
             </form>
           </div>
         </div>

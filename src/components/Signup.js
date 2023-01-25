@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 import '../styles/Signup.css'
@@ -102,7 +103,7 @@ const Signup = (props) => {
                 type="submit"
                 value="Register"
                 onClick={handleSignup} />
-              <div className="remember">Already have an account? <a href="/login">Login</a></div>
+              <div className="remember">Already have an account? <Link to="/login">Login</Link></div>
             </form>
           </div>
         </div>
