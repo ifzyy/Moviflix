@@ -28,7 +28,7 @@ const Signup = (props) => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if ((name !== '' && password !== '') && password.length > 6) {
+    if ((name !== '' && password !== '') && password.length >= 6 && name.length > 3) {
       axios.post("https://moviflix-backend.fly.dev/registrations", {
         user: {
           name: name,
@@ -41,7 +41,7 @@ const Signup = (props) => {
       ).then(response => {
         if (response.data.status === "created") {
           console.log(response)
-          toast.success("Sign up successful")
+          toast.success("Sign up successful.Now log in")
           handleSuccesfulAuth()
 
         }

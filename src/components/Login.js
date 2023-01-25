@@ -45,7 +45,6 @@ const Login = (props) => {
       }
     }, { withCredentials: true }
     ).then(response => {
-      console.log(response.data.user)
       if (response.data.status === "created") {
         toast.success(`welcome back ${response.data.user.name}`)
          localStorage.setItem("online", JSON.stringify(userStatus))
@@ -53,7 +52,7 @@ const Login = (props) => {
         handleSuccessfulLogin(response.data.user)
       }
       else {
-        toast.error(`${response.data.message}`)
+        toast.error(`${response.data.message}. Enter correct details`)
       }
     })
   };
