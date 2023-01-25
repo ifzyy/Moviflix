@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import { Toaster } from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 import Enjoy from './Enjoy'
 import Download from './Download'
 import Kids from './Kids'
@@ -11,9 +12,7 @@ const Home = (props) => {
   useEffect(() => {
     AOS.init({ duration: 2000 })
   }, [])
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+
 
   
   if (!props.loggedInStatus) {
@@ -26,7 +25,7 @@ const Home = (props) => {
             <div className="nav">
               <i className="fa-solid fa-bars" />
               <div className="nav-links">
-                <a href="/login" className="link">Sign in</a>
+                <Link to="/login" className="link">Sign in</Link>
               </div>
             </div>
           </header>
@@ -61,12 +60,12 @@ const Home = (props) => {
             </header>
 
             <section className="headline">
-              <p className="texto">Welcome {capitalizeFirstLetter(props.user.name)}</p>
+              <p className="texto">Welcome </p>
               <section className="headline" data-aos="zoom-in">
                 <h1 className="unlimited">Unlimited movies, <br /> TV shows, and more.</h1>
                 <p className="text">Watch anywhere. anytime.</p>
                 <p className="text2" data-aos="zoom-in-right">Ready to watch? Click the button to get started.</p>
-                <a href="/signup" className="signup">All Movies</a>
+                <Link to="/signup" className="signup">All Movies</Link>
               </section>
             </section>
           </div>

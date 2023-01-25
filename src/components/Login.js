@@ -35,12 +35,12 @@ const Login = (props) => {
       }
     }, { withCredentials: true }
     ).then(response => {
+      console.log(response)
       if (response.data.status === "created") {
         toast.success(`welcome back ${response.data.user.name}`)
            handleSuccessfulLogin(response.data.user)
       }
       else {
-        console.log(response)
         toast.error(`${response.data.message}`)
       }
     })

@@ -38,8 +38,9 @@ const Signup = (props) => {
     }, { withCredentials: true }
     ).then(response => {
       if (response.data.status === "created") {
+        console.log(response)
         toast.success("Sign up successful")
-        setTimeout(handleSuccesfulAuth(),2000)
+      handleSuccesfulAuth()
         
       }
       else {

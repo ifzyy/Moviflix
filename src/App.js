@@ -23,22 +23,22 @@ function App() {
       }
     })
   }
-
   const checkLoggedIn =()=>{
     axios.get("https://throbbing-water-6757.fly.dev/logged_in", {withCredentials: true})
     .then(response =>{
       console.log(response.data)
-      if(response.data.logged_in  && loggedInStatus === false) {
+      if(response.data.logged_in  && loggedInStatus === true) {
         setLoggedInStatus(true)
         setuser(response.data.user)
       }
       else if(!response.data.logged_in && loggedInStatus){
         setLoggedInStatus(false)
          setuser({})
+         toast.success("please signup or login")
       }
     })
   }
-  
+   
    useEffect(() => {
     checkLoggedIn()
    }, )
