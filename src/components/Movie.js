@@ -7,6 +7,9 @@ const Movie = (props) => {
        <div className='movies' style={{backgroundImage: `url(${image})`}}>
          <p>{name}</p>
          {summary}
+         {language}
+         {id}
+         {rating}
        </div>
     </div>
   )
