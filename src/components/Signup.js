@@ -29,14 +29,14 @@ const Signup = (props) => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if((name !== '' && password !== '') && password.length > 6){
-      axios.post("https://throbbing-water-6757.fly.dev/registrations", {
+      axios.post("https://moviflix-backend.fly.dev/registrations", {
       user: {
         name: name,
         email: email,
         password: password,
         password_confirmation: passwordConfirmation,
       }
-    }, { withCredentials: true }
+    },{withCredentials: true}
     ).then(response => {
       if (response.data.status === "created") {
         console.log(response)

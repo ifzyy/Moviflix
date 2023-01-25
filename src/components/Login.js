@@ -21,6 +21,7 @@ const Login = (props) => {
     }
 
   }
+ 
   const handleSuccessfulLogin = (data) => {
     props.setLoggedInStatus(true);
     props.setuser(data)
@@ -29,12 +30,12 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    axios.post("https://throbbing-water-6757.fly.dev/sessions", {
+    axios.post("https://moviflix-backend.fly.dev/sessions", {
       user: {
         email: validator.isEmail(email) ? email : toast.error("Enter valid email"),
         password: password,
       }
-    }, { withCredentials: true }
+    }, {withCredentials: true}
     ).then(response => {
       console.log(response)
       if (response.data.status === "created") {
