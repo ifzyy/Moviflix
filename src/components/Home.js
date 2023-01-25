@@ -5,6 +5,7 @@ import Enjoy from './Enjoy'
 import Download from './Download'
 import Kids from './Kids'
 import AOS from 'aos'
+
 import 'aos/dist/aos.css'
 import '../styles/Home.css'
 
@@ -13,9 +14,13 @@ const Home = (props) => {
     AOS.init({ duration: 2000 })
   }, [])
 
-
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  const {loggedInStatus,user} = props
   
-  if (!props.loggedInStatus) {
+
+  if (!loggedInStatus) {
   return (
     <div className="Home">
       <div className="bg">
@@ -60,7 +65,7 @@ const Home = (props) => {
             </header>
 
             <section className="headline">
-              <p className="texto">Welcome </p>
+              <p className="texto">Welcome {capitalizeFirstLetter(user.name)}!</p>
               <section className="headline" data-aos="zoom-in">
                 <h1 className="unlimited">Unlimited movies, <br /> TV shows, and more.</h1>
                 <p className="text">Watch anywhere. anytime.</p>

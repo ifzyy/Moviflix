@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import validator from "validator";
@@ -12,6 +12,7 @@ const Login = (props) => {
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
 
+
   const showPass = () => {
     if (show) {
       setShow(false)
@@ -19,12 +20,19 @@ const Login = (props) => {
     else {
       setShow(true)
     }
-
   }
- 
+
+  const userStatus = {
+    online: true
+  }
+
   const handleSuccessfulLogin = (data) => {
-    props.setLoggedInStatus(true);
-    props.setuser(data)
+    const use = JSON.parse(localStorage.getItem("user"))
+    const userOnline = JSON.parse(localStorage.getItem("online"))
+    if (use.email === data.email) {
+      props.setLoggedInStatus(userOnline.online)
+      props.setuser(use)
+    }
     navigate('/')
   }
 
@@ -35,12 +43,14 @@ const Login = (props) => {
         email: validator.isEmail(email) ? email : toast.error("Enter valid email"),
         password: password,
       }
-    }, {withCredentials: true}
+    }, { withCredentials: true }
     ).then(response => {
-      console.log(response)
+      console.log(response.data.user)
       if (response.data.status === "created") {
         toast.success(`welcome back ${response.data.user.name}`)
-           handleSuccessfulLogin(response.data.user)
+         localStorage.setItem("online", JSON.stringify(userStatus))
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        handleSuccessfulLogin(response.data.user)
       }
       else {
         toast.error(`${response.data.message}`)

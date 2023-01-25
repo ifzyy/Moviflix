@@ -11,43 +11,45 @@ const Signup = (props) => {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
+
   const handleSuccesfulAuth = () => {
-    props.setLoggedInStatus(true);
-    navigate('/')
+    navigate('/login')
   }
 
-  const showPass = ()=>{
-    if(show){
+  const showPass = () => {
+    if (show) {
       setShow(false)
     }
-    else{
+    else {
       setShow(true)
     }
-   
+
   }
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if((name !== '' && password !== '') && password.length > 6){
+    if ((name !== '' && password !== '') && password.length > 6) {
       axios.post("https://moviflix-backend.fly.dev/registrations", {
-      user: {
-        name: name,
-        email: email,
-        password: password,
-        password_confirmation: passwordConfirmation,
-      }
-    },{withCredentials: true}
-    ).then(response => {
-      if (response.data.status === "created") {
-        console.log(response)
-        toast.success("Sign up successful")
-      handleSuccesfulAuth()
-        
-      }
-      else {
-        toast.error(response.data.message)
-      }
-    })}
+        user: {
+          name: name,
+          email: email,
+          password: password,
+          password_confirmation: passwordConfirmation,
+          logged_in: true
+        }
+      }, { withCredentials: true }
+      ).then(response => {
+        if (response.data.status === "created") {
+          console.log(response)
+          toast.success("Sign up successful")
+          handleSuccesfulAuth()
+
+        }
+        else {
+          toast.error(response.data.message)
+        }
+      })
+    }
     else {
       toast.error("Something went wrong")
     }
@@ -63,7 +65,7 @@ const Signup = (props) => {
           <Toaster position="top-center" />
           <div className="cent">
             <form className="form">
-              <h2>Sign up</h2> 
+              <h2>Sign up</h2>
               <div id="float-label">
                 <input type="text"
                   value={name}
@@ -77,7 +79,7 @@ const Signup = (props) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)} />
                 <label className={email.length > 0 ? "Active" : ""} htmlFor="email">
-                 Email adress
+                  Email adress
                 </label>
               </div>
               <div id="float-label">
@@ -87,7 +89,7 @@ const Signup = (props) => {
                 <label className={password.length > 0 ? "Active" : ""} htmlFor="password">
                   Password
                 </label>
-                 <button onClick={showPass} className="show" type = "button" >{show ? "hide" : "show"}</button>
+                <button onClick={showPass} className="show" type="button" >{show ? "hide" : "show"}</button>
               </div>
               <div id="float-label">
                 <input type={show ? "text" : "password"}
