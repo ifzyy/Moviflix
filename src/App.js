@@ -2,6 +2,7 @@ import React, { useState} from 'react'
 import { useEffect } from 'react';
 import toast,{ Toaster } from 'react-hot-toast';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Movies from './components/Movies.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Home from './components/Home.js';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/" element={<Home loggedInStatus={loggedInStatus} user={user} logout={handleLogout}/>} />
           <Route path="/login" element={<Login setLoggedInStatus={setLoggedInStatus} setuser={setuser}/>} />
           <Route path="/signup" element={<Signup loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} />} />
+          <Route path="/movies" element={<Movies loggedInStatus={loggedInStatus}/>} />
         </Routes>
       </BrowserRouter>
     </div>
