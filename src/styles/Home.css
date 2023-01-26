@@ -13,13 +13,24 @@ html {
 
 .bg {
     height: 100vh;
-    background-size: cover;
     background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/701eec50-4b87-4dc0-9d00-b0f54025dc36/67801b27-84a3-484f-9805-0b2ce73305a2/NG-en-20220905-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+}
+
+.bg1 {
+    height: 100vh;
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/701eec50-4b87-4dc0-9d00-b0f54025dc36/67801b27-84a3-484f-9805-0b2ce73305a2/NG-en-20220905-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    margin-bottom: 20px;
 }
 
 .bg2 {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.74);
+}
+.bg22 {
+        height: 100vh;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.74);
 }
 
 @media (min-width:1000px) {

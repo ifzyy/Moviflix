@@ -5,6 +5,7 @@ import Movies from './components/Movies.js';
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Home from './components/Home.js';
+import Navbar from './components/Navbar.js';
 
 
 import './App.css';
@@ -42,10 +43,11 @@ function App() {
       <Toaster position="top-center" />
       <BrowserRouter>
         <Routes>
+          <Route path="/blah" element={<Navbar loggedInStatus={loggedInStatus} logout={handleLogout} />} />
           <Route path="/" element={<Home loggedInStatus={loggedInStatus} user={user} logout={handleLogout}/>} />
           <Route path="/login" element={<Login setLoggedInStatus={setLoggedInStatus} setuser={setUser} />} />
           <Route path="/signup" element={<Signup loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} />} />
-          <Route path="/movies" element={<Movies loggedInStatus={loggedInStatus} />} />
+          <Route path="/movies" element={<Movies loggedInStatus={loggedInStatus} logout={handleLogout}/>} />
         </Routes>
       </BrowserRouter>
     </div>
