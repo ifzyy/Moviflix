@@ -21,7 +21,7 @@ const Movie = (props) => {
         <div className={isOpen ? "movie_card" : "none"} id="bright">
           <div className="info_section">
             <div className="movie_header">
-              <img className="locandina" src={image} />
+              <img className="locandina" src={image} alt="big test" />
               <h1>{name}</h1>
               <h4>{date}</h4>
               <span className="minutes">{runtime} min</span>
