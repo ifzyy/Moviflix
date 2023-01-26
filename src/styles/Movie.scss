@@ -14,12 +14,17 @@ body {
     font-weight: 400;
 }
 
+.centt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .movie_card {
     position: relative;
-    display: block;
-    width: 800px;
-    height: 350px;
-    margin: 100px auto;
+    display: flex;
+   width: 1000px;
+   height: 400px;
+    z-index: 100;
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.4s;
@@ -125,7 +130,11 @@ body {
     background-size: cover;
     border-radius: 11px;
 }
-
+.movies-grid .movie_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (min-width: 768px) {
     .movie_header {
         width: 60%;

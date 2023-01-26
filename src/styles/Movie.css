@@ -95,3 +95,7 @@
     text-overflow: ellipsis;
     transition: transform 0.2s ease-in;
 }
+
+.none {
+    display: none;
+}

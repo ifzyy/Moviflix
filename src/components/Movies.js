@@ -51,6 +51,7 @@ const Movies = () => {
               rating={movie.rating.average}
               summary={movie.summary}
               image={movie.image.medium}
+              bigImage={movie.image.original}
             />
           ))}
         </div>
