@@ -7,6 +7,7 @@ import Signup from './components/Signup.js';
 import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
 import Details from './components/MovieDetails.js';
+import WatchList from './components/WatchList.js';
 
 
 import './App.css';
@@ -44,8 +45,9 @@ function App() {
       <Toaster position="top-center" />
       <BrowserRouter>
         <Routes>
-          <Route path="/:name" element={<Details />} />
-          <Route path="/blah" element={<Navbar loggedInStatus={loggedInStatus} logout={handleLogout} />} />
+          <Route path="/:movie" element={<Details />} />
+          <Route path="/watchlist" element={<WatchList />}/>
+          <Route  element={<Navbar setLoggedInStatus={setLoggedInStatus} setUser={setUser} />} />
           <Route path="/" element={<Home loggedInStatus={loggedInStatus} user={user} logout={handleLogout}/>} />
           <Route path="/login" element={<Login setLoggedInStatus={setLoggedInStatus} setuser={setUser} />} />
           <Route path="/signup" element={<Signup loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} />} />

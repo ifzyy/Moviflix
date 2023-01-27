@@ -1,42 +1,51 @@
-// import React from "react";
-// import { useSelector } from "react-redux";
-// import { useNavigate, useParams } from "react-router-dom";
-// import "../styles/Movie.scss";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineClose } from 'react-icons/ai'
+import "../styles/Movie.scss";
 
-// const Details = () => {
-//   const navigate = useNavigate();
-//   const { movie } = useParams();
-//   const details = useSelector((state) => state.movies.movies);
-//   console.log(movie)
+const Details = () => {
+  const navigate = useNavigate()
+  const handleClickList = () => {
+    toast.success("added to watchlist")
+  };
+const closePop = ()=>{
+  navigate("/movies")
+}
+  const { movie } = useParams();
+  const details = useSelector((state) => state.movies.movies);
+   const MovieDetails = details.filter(detail =>detail.name === movie)
+    const { name, image, date, genres, runtime, summary,} = MovieDetails[0]
+  return (
+    <><div className="movie_card" id="bright" key={name}>
+      <div className="info_section" key={name}>
+     <div className="close" onClick={closePop}><AiOutlineClose /></div>
+        <div className="movie_header">
+          <img className="locandina" src={image.medium} alt="text"/>
+          <h1>{name}</h1>
+          <h4>{date}</h4>
+          <span className="minutes">{runtime}min</span>
+          {genres.map(genre =>(
+              <p className="type">{genre}</p>))}
+        </div>
+        <div className="movie_desc">
+          <p className="text">
+           {summary}
+          </p>
+        </div>
+        <div className="movie_social">
+          <ul>
+            <li onClick={handleClickList}  className="link">Save to watchlist</li>
+          </ul>
+        </div>
+      </div>
+          <div className="blur_back bright_back" style={{ background: `url(${image.original})` }} />
+    </div>
 
-//   return (
-//     <><div className="movie_card" id="bright">
-//       <div className="info_section">
-//         <div className="movie_header">
-//           <img className="locandina" src="https://movieplayer.net-cdn.it/t/images/2017/12/20/bright_jpg_191x283_crop_q85.jpg" />
-//           <h1>Bright</h1>
-//           <h4>2017, David Ayer</h4>
-//           <span className="minutes">117 min</span>
-//           <p className="type">Action, Crime, Fantasy</p>
-//         </div>
-//         <div className="movie_desc">
-//           <p className="text">
-//             Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for.
-//           </p>
-//         </div>
-//         <div className="movie_social">
-//           <ul>
-//             <li><i className="material-icons">share</i></li>
-//             <li><i className="material-icons"></i></li>
-//             <li><i className="material-icons">chat_bubble</i></li>
-//           </ul>
-//         </div>
-//       </div>
-//       <div className="blur_back bright_back" />
-//     </div>
+</>
+  );
+};
 
-// </>
-//   );
-// };
-
-// export default Details;
+export default Details;

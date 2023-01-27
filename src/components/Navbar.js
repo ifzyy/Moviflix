@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "../styles/Navbar.css";
 
 function Navbar(props) {
-
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.removeItem("online")
+        localStorage.removeItem("user")
+        navigate('/')
+        
+    }
     const [active, setActive] = useState("nav__menu");
     const [icon, setIcon] = useState("nav__toggler");
     const navToggle = () => {
@@ -29,7 +36,7 @@ function Navbar(props) {
                     </Link>
                 </li>
                 <li className="nav__item">
-                    <button onClick={props.logout} className="nav__link link">
+                    <button onClick={handleLogout} className="nav__link link">
                         Logout
                     </button>
                 </li>

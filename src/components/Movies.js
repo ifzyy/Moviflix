@@ -4,13 +4,15 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchData } from '../redux/movies.js/fetch';
 import Navbar from './Navbar';
+import { useState } from 'react';
 import AOS from 'aos';
 import '../styles/Movie.css'
 import Movie from './Movie';
 
 const Movies = () => {
-   
-  const movies = useSelector((state) => state.movies.movies);
+  const movies = useSelector((state) => state.movies.movies)
+  const [search, setSearch] = useState('')
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (movies.length === 0) {
@@ -26,7 +28,6 @@ const Movies = () => {
         <div className="bg1">
         <Navbar />
           <div className="bg22">
-        
             <section className="headline one">
               <section className="headline" data-aos="zoom-in">
                 <h1 className="unlimited">Unlimited movies, <br /> TV shows, and more.</h1>
@@ -35,10 +36,34 @@ const Movies = () => {
             </section>
           </div>
         </div>
-      
+      <h1 className="all-movies">All movies{movies.length}</h1>
+      <div className="searchInput">
+        <input
+          type="textInput"
+          placeholder="Search"
+          aria-label="search"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="searchIcon link">
+          Search
+        </div>
+      </div>
       <div className="movies-container">
+     
         <div className="movies-grid">
-          {movies.map((movie) => (
+          { // eslint-disable-next-line consistent-return
+          // eslint-disable-next-line
+            movies.filter((element) => {
+              if (search === '') {
+                return element;
+              }
+              if (
+                element.name.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return element;
+              }
+            })
+          .map((movie) => (
             <Movie
               key={movie.id}
               type={movie.type}
@@ -52,6 +77,7 @@ const Movies = () => {
               summary={movie.summary}
               image={movie.image.medium}
               bigImage={movie.image.original}
+       
             />
           ))}
         </div>

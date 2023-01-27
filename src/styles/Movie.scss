@@ -9,6 +9,7 @@ html,
 body {
     margin: 0;
     background: black;
+    color: white;
     font-family: "Montserrat", helvetica, arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -19,11 +20,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .movie_card {
     position: relative;
     display: flex;
-   width: 1000px;
-   height: 400px;
+    width: 1000px;
     z-index: 100;
     overflow: hidden;
     border-radius: 10px;
@@ -130,11 +131,13 @@ body {
     background-size: cover;
     border-radius: 11px;
 }
+
 .movies-grid .movie_card {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 @media screen and (min-width: 768px) {
     .movie_header {
         width: 60%;
@@ -180,6 +183,62 @@ body {
         background: linear-gradient(to top, #141413 50%, transparent 100%);
         display: inline-grid;
     }
+}
+
+.all-movies {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+.searchIcon-one,
+.searchIcon {
+    background-color: red;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+}
+.close > * {
+    color: red;
+    border: 1px solid red;
+}
+
+.searchInput {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.searchInput-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+}
+
+.textInput-one {
+    width: 500px;
+    height: 10px;
+    outline: none;
+    padding: 10px;
+}
+
+.textInput-one::placeholder {
+    font-size: 20px;
 }
 
 #bright {
