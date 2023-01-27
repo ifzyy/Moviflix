@@ -38,7 +38,7 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    axios.post("https://moviflix-backend.fly.dev/sessions", {
+    axios.post("https://weathered-bird-9392.fly.dev/sessions", {
       user: {
         email: validator.isEmail(email) ? email : toast.error("Enter valid email"),
         password: password,

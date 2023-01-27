@@ -29,7 +29,7 @@ const Signup = (props) => {
   const handleSignup = async (e) => {
     e.preventDefault();
     if ((name !== '' && password !== '') && password.length >= 6 && name.length > 3) {
-      axios.post("https://moviflix-backend.fly.dev/registrations", {
+      axios.post("https://weathered-bird-9392.fly.dev/registrations", {
         user: {
           name: name,
           email: email,
