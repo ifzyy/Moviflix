@@ -1,0 +1,17 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin: 20px;
+}
+.pagination > li {
+    padding: 15px;
+    border: 2px solid red;
+    color: red;
+}
+
+.page-item :focus {
+padding: 20px;
+}

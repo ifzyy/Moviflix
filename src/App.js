@@ -8,9 +8,8 @@ import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
 import Details from './components/MovieDetails.js';
 import WatchList from './components/WatchList.js';
-
-
 import './App.css';
+
 
 function App() {
 
@@ -54,6 +53,7 @@ function App() {
           <Route path="/movies" element={<Movies loggedInStatus={loggedInStatus} logout={handleLogout}/>} />
         </Routes>
       </BrowserRouter>
+  
     </div>
   );
 }

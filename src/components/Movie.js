@@ -15,6 +15,8 @@ const Movie = (props) => {
   const handleClick = () => {
     navigate(`/${name}`);
   };
+
+
   return (
     <>
 
