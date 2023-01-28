@@ -74,7 +74,7 @@ const Home = (props) => {
                 <h1 className="unlimited">Unlimited movies, <br /> TV shows, and more.</h1>
                 <p className="text">Watch anywhere. anytime.</p>
                 <p className="text2" data-aos="zoom-in-right">Ready to watch? Click the button to get started.</p>
-                <Link to="/movies/1" className="signup">All Movies</Link>
+                <Link to="/movies" className="signup">All Movies</Link>
               </section>
             </section>
           </div>

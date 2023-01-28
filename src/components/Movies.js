@@ -22,7 +22,6 @@ const Movies = (props) => {
   const [postsPerPage] = useState(12);
 
   const paginate = (pageNumber) => {
-  
     setCurrentPage(pageNumber);
   };
   const indexOfLastPost = currentPage * postsPerPage;
