@@ -1,5 +1,5 @@
 import React from 'react'
-const WatchList = (props) => {
+const WatchList = () => {
   return (
     <div>
   
