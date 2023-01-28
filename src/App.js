@@ -54,7 +54,7 @@ function App() {
           <Route path="/" element={<Home loggedInStatus={loggedInStatus} user={user} logout={handleLogout}/>} />
           <Route path="/login" element={<Login setLoggedInStatus={setLoggedInStatus} setuser={setUser} />} />
           <Route path="/signup" element={<Signup loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} />} />
-          <Route path="/movies" element={<Movies loggedInStatus={loggedInStatus} logout={handleLogout}/>} />
+          <Route path="/movies/:number" element={<Movies loggedInStatus={loggedInStatus} logout={handleLogout}/>} />
         </Routes>
       </BrowserRouter>
   
