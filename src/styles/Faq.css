@@ -84,6 +84,10 @@ transition: 0.5s ease-in-out;
     font-size: 30px;
     border: none;
   }
+    .opened {
+      rotate: 30deg;
+      transition: 0.5s ease-in-out;
+    }
 
   .space {
     display: flex;

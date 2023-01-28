@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
@@ -62,7 +62,6 @@ const Signup = (props) => {
           <header className="header">
             <div className="logo"><a className="logo " href="/">Moviflix</a> </div>
           </header>
-          <Toaster position="top-center" />
           <div className="cent">
             <form className="form">
               <h2>Sign up</h2>

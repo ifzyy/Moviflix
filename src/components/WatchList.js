@@ -1,10 +1,9 @@
 import React from 'react'
-
-const WatchList = () => {
+const WatchList = (props) => {
   return (
     <div>
   
-     <p>Under construction</p>
+     <h1>Under construction</h1>
     
     </div>
   )

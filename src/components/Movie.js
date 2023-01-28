@@ -2,6 +2,8 @@ import React from 'react'
 import { BsFillStarFill } from 'react-icons/bs'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { useNavigate } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import WatchList from './WatchList';
 import '../styles/Movie.css'
 import { toast } from 'react-hot-toast'
 const Movie = (props) => {
@@ -36,9 +38,15 @@ const Movie = (props) => {
           </div>
         </div>
       </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/watchlist" element={<WatchList  name={name}/>} />
+        </Routes>
+      </BrowserRouter >
     </>
 
   )
+
 }
 
 export default Movie

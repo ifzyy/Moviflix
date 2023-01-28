@@ -119,6 +119,7 @@ if(props.loggedInStatus ){
     toast.error("please log in or sign up first")
   navigate("/") 
   }
+
 };
 
 export default Movies;
