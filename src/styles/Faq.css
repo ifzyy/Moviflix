@@ -19,9 +19,9 @@
     transition: 0.2s ease-out;
   }
 
-.opened  {
-rotate: 30deg;
-transition: 0.5s ease-in-out;
+  .opened {
+    rotate: 30deg;
+    transition: 0.5s ease-in-out;
   }
 
   .space {
@@ -83,11 +83,13 @@ transition: 0.5s ease-in-out;
     color: white;
     font-size: 30px;
     border: none;
+    transition: 0.5s ease-out;
   }
-    .opened {
-      rotate: 30deg;
-      transition: 0.5s ease-in-out;
-    }
+
+  .opened {
+    rotate: 30deg;
+    transition: 0.5s ease-in-out;
+  }
 
   .space {
     display: flex;
