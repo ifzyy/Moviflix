@@ -7,7 +7,7 @@ const Kids = () => {
     AOS.init({ duration: 2000 })
   }, [])
   return (
-    <div className="kids">
+    <div className="kids" id="kids">
           <div className="kids1" data-aos="zoom-in-right">
               <div className="kids-tv">Create profiles for kids.</div>
               <div className="watch">Send kids on adventures with their favorite characters in a space made just for them—free with your membership.

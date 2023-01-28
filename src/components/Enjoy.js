@@ -8,7 +8,7 @@ const Enjoy = () => {
         AOS.init({ duration: 2000 })
     }, [])
     return (
-        <div className="enjoy">
+        <div className="enjoy" id='enjoy'>
             <div className="enjoy1" data-aos="zoom-in-right">
                 <div className="enjoy-tv">Enjoy your Tv</div>
                 <div className="watch">Watch on Smart TVs,

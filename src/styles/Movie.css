@@ -8,6 +8,11 @@
     transition: box-shadow 0.5s ease;
 
 }
+.centtt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .likes-count > * {
     color: red;
 }

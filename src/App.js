@@ -32,6 +32,10 @@ function App() {
       setLoggedInStatus(checkOnline.online)
       setUser(loggedIn)
     }
+    else{
+      setLoggedInStatus(false)
+      setUser(false)
+    }
   }
 
   useLayoutEffect(() => {

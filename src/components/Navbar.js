@@ -10,7 +10,7 @@ function Navbar(props) {
         localStorage.removeItem("online")
         localStorage.removeItem("user")
         navigate('/')
-        
+        window.location.reload()
     }
     const [active, setActive] = useState("nav__menu");
     const [icon, setIcon] = useState("nav__toggler");

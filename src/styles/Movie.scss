@@ -24,15 +24,10 @@ body {
 .movie_card {
     position: relative;
     display: flex;
-    width: 1000px;
+    justify-content: center;
     z-index: 100;
     overflow: hidden;
     border-radius: 10px;
-    transition: all 0.4s;
-}
-
-.movie_card:hover {
-    transform: scale(1.02);
     transition: all 0.4s;
 }
 

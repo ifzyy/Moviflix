@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import Enjoy from './Enjoy'
 import Download from './Download'
 import Kids from './Kids'
+import Faq from './Faq'
 import AOS from 'aos'
 
 import 'aos/dist/aos.css'
 import '../styles/Home.css'
+import Footer from './Footer'
 
 const Home = (props) => {
   useEffect(() => {
@@ -22,7 +24,7 @@ const Home = (props) => {
 
   if (!loggedInStatus) {
   return (
-    <div className="Home">
+    <div className="Home" id='home'>
       <div className="bg">
         <div className="bg2">
           <header className="header">
@@ -46,12 +48,13 @@ const Home = (props) => {
       <Enjoy />
       <Download />
       <Kids />
+      <Faq />
     </div>
       
   )}
   else {
     return(
-      <div className="Home">
+      <div className="Home" id='home'>
         <Toaster position="top-center" />
         <div className="bg">
           <div className="bg2">
@@ -78,6 +81,8 @@ const Home = (props) => {
         <Enjoy />
         <Download />
         <Kids />
+        <Faq />
+        <Footer />
       </div>
     
     )

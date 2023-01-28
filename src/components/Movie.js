@@ -6,12 +6,14 @@ import '../styles/Movie.css'
 import { toast } from 'react-hot-toast'
 const Movie = (props) => {
 
-  const { name, rating, image } = props
+  const { name, rating, image} = props
 
+   
   const navigate = useNavigate();
   const handleClickList = () => {
-    toast.success("added to watchlist")
+   toast.success("added to watchlist")
   };
+
   const handleClick = () => {
     navigate(`/${name}`);
   };
@@ -19,7 +21,6 @@ const Movie = (props) => {
 
   return (
     <>
-
       <div className="card-container" style={{ background: `url(${image})` }}>
         <div className="card">
           <div className="card-content">

@@ -1,0 +1,129 @@
+@media (min-width: 991px) {
+  .faq {
+    width: 60%;
+    gap: 30px;
+  }
+
+  .faq > li {
+    text-align: left;
+    background: #303030;
+    font-size: 22px;
+    margin: 10px 0 30px 0;
+  }
+
+  .faq > li > div > button {
+    background-color: transparent;
+    color: white;
+    font-size: 39px;
+    border: none;
+    transition: 0.2s ease-out;
+  }
+
+.opened  {
+rotate: 30deg;
+transition: 0.5s ease-in-out;
+  }
+
+  .space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 20px;
+  }
+
+  .faq-card {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .faq-card > h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .open,
+  .open1,
+  .open2 {
+    max-height: 1200px;
+    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+    background: #303030;
+    text-align: left;
+    padding: 20px;
+  }
+
+  .closed,
+  .closed1,
+  .closed2 {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  }
+}
+
+@media (max-width: 990px) {
+  .faq {
+    width: 90%;
+    padding: 0;
+    gap: 30px;
+  }
+
+  .faq > li {
+    background: #303030;
+    font-size: 15px;
+    margin: 10px 0 30px 0;
+  }
+
+  .faq > li > div > button {
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    border: none;
+  }
+
+  .space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .faq-card {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .faq-card > h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .open,
+  .open1,
+  .open2 {
+    display: block;
+    background-color: gray;
+    padding: 10px;
+    font-size: 14px;
+    margin: 0 0 30px 0;
+    max-height: 1200px;
+    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+    background: #303030;
+    display: block;
+    text-align: left;
+    padding: 20px;
+  }
+
+  .closed,
+  .closed1,
+  .closed2 {
+    display: none;
+  }
+}

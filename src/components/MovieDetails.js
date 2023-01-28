@@ -17,9 +17,9 @@ const closePop = ()=>{
   const { movie } = useParams();
   const details = useSelector((state) => state.movies.movies);
    const MovieDetails = details.filter(detail =>detail.name === movie)
-    const { name, image, date, genres, runtime, summary,} = MovieDetails[0]
+    const { name, image, date, genres, runtime, summary} = MovieDetails[0]
   return (
-    <><div className="movie_card" id="bright" key={name}>
+    <div className="centtt"><div className="movie_card" id="bright" key={name}>
       <div className="info_section" key={name}>
      <div className="close" onClick={closePop}><AiOutlineClose /></div>
         <div className="movie_header">
@@ -37,14 +37,14 @@ const closePop = ()=>{
         </div>
         <div className="movie_social">
           <ul>
-            <li onClick={handleClickList}  className="link">Save to watchlist</li>
+            <li onClick={handleClickList}  className="link ">Save to watchlist</li>
           </ul>
         </div>
       </div>
           <div className="blur_back bright_back" style={{ background: `url(${image.original})` }} />
     </div>
 
-</>
+</div>
   );
 };
 

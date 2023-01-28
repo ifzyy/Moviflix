@@ -7,7 +7,7 @@ const Download = () => {
         AOS.init({ duration: 2000 })
     }, [])
     return (
-        <div className="download">
+        <div className="download" id='download'>
             <div className="download2" data-aos="zoom-in-up">
                 <img className="mobile" src="../images/mobile.jpg" alt="" />
                 <div className="detail">
