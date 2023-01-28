@@ -49,6 +49,7 @@ const Home = (props) => {
       <Download />
       <Kids />
       <Faq />
+      <Footer />
     </div>
       
   )}

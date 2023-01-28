@@ -26,7 +26,7 @@ const Movie = (props) => {
           <div className="card-content">
             <h3 className="card-title" >{name}</h3>
             <div className="card-count">
-              <div className="likes-count"><span> <AiOutlineHeart /></span> {Math.floor(Math.random() * 100)}</div>
+              <div className="likes-count"><span> <AiOutlineHeart /></span> {Math.floor(Math.random() * 1000)}</div>
               <div className="rating"><BsFillStarFill />{rating}</div>
             </div>
           </div>
