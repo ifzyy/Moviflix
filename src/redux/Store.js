@@ -1,9 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import reducer from './movies.js/fetch';
+import { moviesReducer } from './movies/fetch'
+import { likesReducer } from './movies/fetch';
 
 const rootReducer = combineReducers({
-    movies: reducer,
+    movies: moviesReducer,
+    likes: likesReducer
 });
 
 const store = configureStore({

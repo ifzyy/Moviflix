@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { fetchData } from "../redux/movies.js/fetch";
+import { fetchData } from "../redux/movies/fetch";
+import { fetchLikes } from "../redux/movies/fetch";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -11,10 +12,11 @@ import Search from "./Search";
 import Pagination from "./Pagination";
 import { toast } from "react-hot-toast";
 
-
 const Movies = (props) => {
+  
   const navigate = useNavigate()
   const movies = useSelector((state) => state.movies.movies);
+
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
@@ -25,12 +27,12 @@ const Movies = (props) => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = movies.slice(indexOfFirstPost, indexOfLastPost);
-
+  
+   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (movies.length === 0) {
-      dispatch(fetchData());
-    }
+dispatch(fetchData())
+ dispatch(fetchLikes())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
   useEffect(() => {
@@ -98,6 +100,7 @@ if(props.loggedInStatus ){
             />))}         
              {currentPosts.map((movie) =>(
                 <Movie
+                id={movie.id}
                   key={movie.id}
                   name={movie.name}
                   rating={movie.rating.average}

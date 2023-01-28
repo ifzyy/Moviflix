@@ -15,6 +15,10 @@
 }
 .likes-count > * {
     color: red;
+    
+}
+.likes-count > span > svg {
+    font-size: 20px;
 }
 .rating > * {
     color: red;
